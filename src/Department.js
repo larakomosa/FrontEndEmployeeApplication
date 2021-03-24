@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
+import {Button, ButtonToolbar} from 'react-bootstrap';
+import {AddDepModal} from './AddDepModal';
 
 export class Department extends Component{
 
 
     constructor(props){
         super(props);
-        this.state={deps:[]}
+        this.state={deps:[], addModalShow: false}
     }
 
     refreshList(){
-        console.log('function called')
         fetch(process.env.REACT_APP_API + 'department')
         .then(response=>response.json())
         .then(data=>{
-            console.log("data log", data)
             this.setState({deps:data});
         })
     }
@@ -29,7 +29,7 @@ export class Department extends Component{
 
     render(){
         const {deps} = this.state;
-        console.log(process.env.REACT_APP_API)
+        let addModalClose=()=>this.setState({addModalShow:false})
         return(
             <div>
                 <Table className="mt-4" strinped bordered hover size="sm">
@@ -51,6 +51,13 @@ export class Department extends Component{
                         )}
                 </tbody>
                 </Table>
+                <ButtonToolbar>
+                    <Button variant='primary'
+                    onClick={()=>this.setState({addModalShow: true})}>
+                    Add Department</Button>
+                    <AddDepModal show={this.state.addModalShow}
+                    onHide={addModalClose}/>
+                </ButtonToolbar>
             </div>
         )
     }

@@ -1,12 +1,34 @@
 import React, {Component} from 'react';
 import {Modal, Button, Row, Col, Form, FormGroup} from 'react-bootstrap'
+import { isArrayLiteralExpression } from 'typescript';
 
-export class addDepModal extends Component {
+export class AddDepModal extends Component {
 
     constructor(props){
     super(props);
+    this.handleSubmit=this.handleSubmit.bind(this);
 }
 
+handleSubmit(event){
+    console.log('submit called')
+    fetch(process.env.REACT_APP_API + 'department', {
+        method: 'POST',
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+            DepartmentName:event.target.DepartmentName.value
+        })
+    })
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+    },
+    (error)=>{
+        alert('Failed')
+    })
+}
 
 render(){
     return(
@@ -38,6 +60,9 @@ render(){
                     </Col>
                 </Row>
          </Modal.Body>
+         <Modal.Footer>
+             <Button variant="danger" onClick={this.props.onHide}>Close</Button>
+         </Modal.Footer>
             </Modal>
     </div>
     )
