@@ -2,8 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import {Home} from './Home';
-import {Department} from './Department'
-import {Employee} from './Employee'
+import {TodoItems} from './TodoItems'
 import {Navigation} from './Navigation';
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -18,8 +17,7 @@ function App() {
      <Navigation/>
      <Switch>
        <Route path= '/' component={Home} exact/>
-       <Route path= '/department' component={Department}/>
-       <Route path= '/employee' component={Employee}/>
+       <Route path= '/TodoItems' component={TodoItems}/>
      </Switch>
     </div>
     </BrowserRouter>

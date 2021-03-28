@@ -48,20 +48,25 @@ render(){
                     <Col sm={6}>
                         <Form onSubmit = {this.handleSubmit}>
                         <Form.Group controlId= "DepartmentId">
-                                <Form.Label>DepartmentId</Form.Label>
+                                <Form.Label>Todo Id</Form.Label>
                                 <Form.Control type="text" name="DepartmentId" required
                                 disabled
                                 defaultValue={this.props.depid}
                                 placeholder = "DepartmentId"/>
                                 </Form.Group>
-                            <Form.Group controlId= "DepartmentName">
-                                <Form.Label>DepartmentName</Form.Label>
-                                <Form.Control type="text" name="DepartmentName" required
-                                placeholder = "DepartmentName"/>
+                            <Form.Group controlId= "Task">
+                                <Form.Label>Task</Form.Label>
+                                <Form.Control type="text" name="Task" required
+                                placeholder = "Task"/>
+                                </Form.Group>
+                                <Form.Group controlId= "CompletionStatus">
+                                <Form.Label>CompletionStatus</Form.Label>
+                                <Form.Control type="text" name="CompletionStatus" required
+                                placeholder = "CompletionStatus"/>
                                 </Form.Group>
                                 <Form.Group>
                                     <Button variant="primary" type="submit">
-                                        Update Department
+                                        Update Todo Items
                                     </Button>
                                 </Form.Group>
                     </Form>

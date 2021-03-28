@@ -15,11 +15,8 @@ return(
 <NavLink className = "d-inline p-2 bg-dark text-while" to="/">
     Home
 </NavLink>
-<NavLink className = "d-inline p-2 bg-dark text-while" to="/department">
-    Department
-</NavLink>
-<NavLink className = "d-inline p-2 bg-dark text-while" to="/employee">
-    Employee
+<NavLink className = "d-inline p-2 bg-dark text-while" to="/TodoItems">
+    TodoItems
 </NavLink>
 </Nav>
     </Navbar.Collapse>
