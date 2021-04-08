@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
     <div className="App">
      <h3 className= "m-3 d-flex justify-content-center">
-       Employee Library
+        Weekly To Do List
      </h3>
      <Navigation/>
      <Switch>

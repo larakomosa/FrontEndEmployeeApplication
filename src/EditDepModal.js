@@ -11,15 +11,17 @@ export class EditDepModal extends Component {
 
 handleSubmit(event){
     console.log('submit called')
-    fetch(process.env.REACT_APP_API + 'department', {
+    console.log(event.target.id.value, event.target.isComplete.value, event.target.name.value)
+    fetch(process.env.REACT_APP_API + 'TodoItems', {
         method: 'PUT',
         headers:{
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body:JSON.stringify({
-            DepartmentId:event.target.DepartmentId.value,
-            DepartmentName:event.target.DepartmentName.value
+            Id: event.target.id.value,
+            Name: event.target.name.value,
+            IsComplete: event.target.isComplete.value
         })
     })
     .then(res=>res.json())
@@ -49,20 +51,20 @@ render(){
                         <Form onSubmit = {this.handleSubmit}>
                         <Form.Group controlId= "DepartmentId">
                                 <Form.Label>Todo Id</Form.Label>
-                                <Form.Control type="text" name="DepartmentId" required
+                                <Form.Control type="text" name="id" required
                                 disabled
                                 defaultValue={this.props.depid}
-                                placeholder = "DepartmentId"/>
+                                placeholder = "Id"/>
                                 </Form.Group>
-                            <Form.Group controlId= "Task">
-                                <Form.Label>Task</Form.Label>
-                                <Form.Control type="text" name="Task" required
-                                placeholder = "Task"/>
+                            <Form.Group controlId= "Name">
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control type="text" name="name" required
+                                placeholder = "name"/>
                                 </Form.Group>
-                                <Form.Group controlId= "CompletionStatus">
+                                <Form.Group controlId= "IsComplete">
                                 <Form.Label>CompletionStatus</Form.Label>
-                                <Form.Control type="text" name="CompletionStatus" required
-                                placeholder = "CompletionStatus"/>
+                                <Form.Control type="text" name="isComplete" required
+                                placeholder = "isComplete"/>
                                 </Form.Group>
                                 <Form.Group>
                                     <Button variant="primary" type="submit">

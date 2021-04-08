@@ -11,14 +11,15 @@ export class AddDepModal extends Component {
 
 handleSubmit(event){
     console.log('submit called')
-    fetch(process.env.REACT_APP_API + 'department', {
+    fetch(process.env.REACT_APP_API + 'TodoItems', {
         method: 'POST',
         headers:{
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body:JSON.stringify({
-            DepartmentName:event.target.DepartmentName.value
+            Name: event.target.Name.value,
+            IsComplete: event.target.IsComplete.value
         })
     })
     .then(res=>res.json())
@@ -39,21 +40,26 @@ render(){
         centered>
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Add Department
+                    Add Task Item
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Row>
                     <Col sm={6}>
                         <Form onSubmit = {this.handleSubmit}>
-                            <Form.Group controlId= "DepartmentName">
-                                <Form.Label>DepartmentName</Form.Label>
-                                <Form.Control type="text" name="DepartmentName" required
-                                placeholder = "DepartmentName"/>
+                            <Form.Group controlId= "Name">
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control type="text" name="Name" required
+                                placeholder = "Name"/>
+                                </Form.Group>
+                                <Form.Group controlId= "IsComplete">
+                                <Form.Label>Completion Status</Form.Label>
+                                <Form.Control type="text" name="IsComplete" required
+                                placeholder = "IsComplete"/>
                                 </Form.Group>
                                 <Form.Group>
                                     <Button variant="primary" type="submit">
-                                        Add Department
+                                        Add To Do Items
                                     </Button>
                                 </Form.Group>
                     </Form>
