@@ -46,33 +46,22 @@ fetch(process.env.REACT_APP_API+ `TodoItems/`+ depid,{
             <div>
         Weekly To Do List
         <Row className = "To Do Table">
-        <div>
-      <label htmlFor="table-search-bar" className="w-100">
-        <span className="sr-only">Search This Data Table</span>
-        <input
-          id="table-search-bar"
-          className="form-control form-control-sm"
-          type="text"
-          placeholder="Search"
-        />
-      </label>
-    </div>
-            <Col lg={{span: 10, offset: 1}} md={{span: 10, offset: 1}} >
+            <Col lg={{span: 8}} md={{span: 8}} >
                 
                 <Table className="mt-4" strinped bordered hover size="sm">
                 <thead>
                     <tr>
-                    <td colspan="6">Todo Task</td>
+                    <td>Todo Task</td>
                     <td>Completed?</td>
-                    <td>Adjust</td>
+                    <td> Adjust</td>
                     </tr>
                 </thead>
                 <tbody>
                     {deps.map(dep=>
                         <tr key = {dep.id}>
-                            <td colspan="6">{dep.name}</td>
-                            <td colspan="2">{dep.isComplete.toString()}</td>
-                            <td colspan="2">  
+                            <td>{dep.name}</td>
+                            <td>{dep.isComplete.toString()}</td>
+                            <td>  
                             <ButtonToolbar>
                                 <Button className="mr-2" variant="info"
                                 onClick={()=>this.setState({editModalShow:true.valueOf,
