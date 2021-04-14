@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Button, ButtonToolbar, Row, Col} from 'react-bootstrap';
 import {AddDepModal} from './AddTaskModal';
 import {EditDepModal} from './EditDepModal';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
@@ -9,7 +8,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import {Grid, Button} from '@material-ui/core';
+import './TodoItems.css'
 
 export class TodoItems extends Component{
 
@@ -49,14 +49,17 @@ fetch(process.env.REACT_APP_API+ `TodoItems/`+ depid,{
         const {deps, depid, depname, depisComplete} = this.state;
         let addModalClose=()=>this.setState({addModalShow:false})
         let editModalClose=()=>this.setState({editModalShow: false})
-        return(<>
-    <TableContainer component={Paper}>
-      <Table aria-label="customized table">
+        return(
+        <Grid container spacing ={1}>
+        <Grid item sm={2} md={2} lg={2}></Grid>
+            <Grid item sm={8} md={8} lg={8}>
+    <TableContainer>
+      <Table aria-label="customized table" size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Todo Item (100g serving)</TableCell>
+            <TableCell>Todo Item</TableCell>
             <TableCell align="right">Completed</TableCell>
-            <TableCell align="right">Adjust Item&nbsp;(g)</TableCell>
+            <TableCell align="left">Adjust Item&nbsp;</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -67,13 +70,13 @@ fetch(process.env.REACT_APP_API+ `TodoItems/`+ depid,{
               </TableCell>
               <TableCell align="right">{dep.isComplete.toString()}</TableCell>
               <TableCell>
-              <ButtonToolbar>
-              <Button className="mr-2" variant="info"
+              <Button className= "Edit" variant="contained" color="primary" size="small"
               onClick={()=>this.setState({editModalShow:true.valueOf,
               depid:dep.id, depname: dep.name, depisComplete: dep.isComplete})}>
                   Edit
               </Button>
-              <Button className="mr-2" variant="info"
+              
+              <Button variant="contained" color="primary" size="small"
               onClick={()=>this.deleteDep(dep.id)}>
                   Delete
               </Button>
@@ -82,21 +85,15 @@ fetch(process.env.REACT_APP_API+ `TodoItems/`+ depid,{
               depid= {depid}
               depname= {depname}
               depisComplete= {depisComplete}/>
-          </ButtonToolbar>
           </TableCell>
         </TableRow>
         )}
      </TableBody>
      </Table>
      </TableContainer>
-      <ButtonToolbar>
-      <Button variant='primary'
-      onClick={()=>this.setState({addModalShow: true})}>
-      Add Task</Button>
-      <AddDepModal show={this.state.addModalShow}
-      onHide={addModalClose}/>
-  </ButtonToolbar>
-  </>
+  </Grid>
+  <Grid item sm={2} md={2} lg={2}></Grid>
+</Grid>
   );}}
 
   export default TodoItems;  

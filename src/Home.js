@@ -43,7 +43,7 @@ export class Home extends Component{
         
         render() {
             const {array} = this.state;
-            console.log(array)
+        console.log(array)
 
                 return (
                   <><form>
