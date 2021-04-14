@@ -74,7 +74,7 @@ export const Nav = (props) => {
               aria-label="account of current user"
               edge="start"
               aria-haspopup="true"
-              onClick={() => handleMenuClick('/')}
+              onClick={handleMenu}
               color="inherit"
             >
               <MenuIcon />

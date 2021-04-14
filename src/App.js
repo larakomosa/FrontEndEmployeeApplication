@@ -11,7 +11,6 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-
      <Header/>
      <Switch>
        <Route path= '/' component={Home} exact/>
