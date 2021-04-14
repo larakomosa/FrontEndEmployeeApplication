@@ -1,5 +1,6 @@
 import React from 'react';
-import Nav from './Nav'
+import Nav from './Nav';
+import './Header.css'
 
 
 // This is one of our simplest components

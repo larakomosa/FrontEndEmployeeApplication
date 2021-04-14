@@ -10,6 +10,7 @@ import Menu from '@material-ui/core/Menu';
 import HomeIcon from '@material-ui/icons/Home';
 import { green } from '@material-ui/core/colors';
 import { useHistory } from "react-router-dom";
+import SearchIcon from '@material-ui/icons/Search';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   toolbar: {
-    minHeight: 128,
+    minHeight: 148,
     alignItems: 'flex-end',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
@@ -73,18 +74,7 @@ export const Nav = (props) => {
               aria-label="account of current user"
               edge="start"
               aria-haspopup="true"
-              onClick={() => handleMenuClick('/home')}
-              color="inherit"
-            >
-              <HomeIcon />
-            </IconButton>
-            <Typography className={classes.title} variant="h4" nowrap>
-              ...Todo
-            </Typography>
-            <IconButton
-              aria-label="display more actions"
-              onClick={handleMenu}
-              edge="end"
+              onClick={() => handleMenuClick('/')}
               color="inherit"
             >
               <MenuIcon />
@@ -105,7 +95,7 @@ export const Nav = (props) => {
               onClose={() => handleMenuClick(null)}
             >
               <MenuItem onClick={() => handleMenuClick('/')}>
-                <p>Search</p>
+              Search
               </MenuItem>
               <MenuItem onClick={() => handleMenuClick('/TodoItems')}>
                 <p> All Items</p>
