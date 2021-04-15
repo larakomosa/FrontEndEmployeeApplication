@@ -10,6 +10,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TextField from '@material-ui/core/TextField';
 import {Grid, Button} from '@material-ui/core';
 import './Home.css';
+import blueGrey from '@material-ui/core/colors/blueGrey';
+
 
 
 export class Home extends Component{
@@ -70,21 +72,25 @@ export class Home extends Component{
         <Grid item sm={2} md={2} lg={2}></Grid>
            <> <Grid item sm={8} md={8} lg={8}>
             <form>
-                      <TextField className ="searchField" fullWidth placeholder="Search for ..." id="outlined-basic" label="Search For.... " variant="outlined" 
+                      <TextField style={{marginBottom: "15px"}} fullWidth placeholder="Search for ..." id="outlined-basic" label="Search For.... " variant="outlined" 
                       value={this.state.name}
                       onChange={this.handleInputChange('name')}
                     />
-                    <Button variant="contained" color="secondary" size="small" onClick={() => this.SearchName()}>Search By Name</Button>&nbsp;&nbsp;
-                    <Button variant="contained" color="secondary" size="small" onClick={() => this.SearchCompletion()}>Search By Completion Status</Button>
+                    <Button className= "Edit" variant="contained" color="secondary" size="small" style={{marginBottom: "15px", fontFamily: "nerko one", color: "white", fontWeight:"bold"}} onClick={() => this.SearchName()}>Search By Name</Button>&nbsp;&nbsp;
+                    <Button className= "Edit" variant="contained" color="secondary" size="small" style={{marginBottom: "15px", fontFamily: "nerko one", color: "white", fontWeight:"bold"}} onClick={() => this.SearchCompletion()}>Search By Completion Status</Button>
             
                   </form>
                   <TableContainer>
       <Table aria-label="customized table" size="small" aria-label="a dense table">
-        <TableHead>
+        <TableHead style={{
+    backgroundColor: blueGrey['700'],
+    color: "white",
+    fontFamily: 'nunito',
+  }}>
           <TableRow>
-            <TableCell>Task Name</TableCell>
-            <TableCell align="right">Completed</TableCell>
-            <TableCell align="left">Adjust Item&nbsp;</TableCell>
+          <TableCell  style={{fontFamily: "nerko one", color: "white", fontWeight:"bold"}}>Todo Item</TableCell>
+            <TableCell style={{fontFamily: "nerko one", color: "white", fontWeight:"bold"}}align="right">Completed</TableCell>
+            <TableCell style={{fontFamily: "nerko one", color: "white", fontWeight:"bold"}} align="left">Adjust Item</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

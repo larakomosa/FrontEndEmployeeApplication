@@ -7,6 +7,17 @@ export class EditDepModal extends Component {
     constructor(props){
     super(props);
     this.handleSubmit=this.handleSubmit.bind(this);
+    this.state={isComplete: false}
+}
+
+toggle=()=> {
+    if (this.props.depisComplete=== true){
+        return (
+            <p>Yes</p>
+        );
+    } else {
+        return (<p>No</p>)
+    }
 }
 
 handleSubmit(event){
@@ -59,12 +70,12 @@ render(){
                             <Form.Group controlId= "Name">
                                 <Form.Label>Name</Form.Label>
                                 <Form.Control type="text" name="name" required
-                                placeholder = "name"/>
+                                placeholder = {this.props.depname}/>
                                 </Form.Group>
                                 <Form.Group controlId= "IsComplete">
                                 <Form.Label>CompletionStatus</Form.Label>
                                 <Form.Control type="text" name="isComplete" required
-                                placeholder = "isComplete"/>
+                                placeholder = {this.toggle}/>
                                 </Form.Group>
                                 <Form.Group>
                                     <Button variant="primary" type="submit">

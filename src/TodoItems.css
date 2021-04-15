@@ -1,3 +1,10 @@
 .Edit {
   margin-right: 20px;
+  display: inline-block;
+}
+
+.Header {
+  font-family: "nerko one";
+  color: "white";
+  font-weight: "bold";
 }

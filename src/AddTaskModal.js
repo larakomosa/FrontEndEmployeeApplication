@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Modal, Button, Row, Col, Form, FormGroup} from 'react-bootstrap'
 import { isArrayLiteralExpression } from 'typescript';
 
-export class AddDepModal extends Component {
+export class AddTaskModal extends Component {
 
     constructor(props){
     super(props);
