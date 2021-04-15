@@ -96,18 +96,18 @@ export class Home extends Component{
         <TableBody>
         {array.map(dep=>
             <TableRow key={dep.id}>
-              <TableCell component="th" scope="row">
+              <TableCell style= {{fontFamily: "nunito", color: blueGrey['700'], fontWeight:"bold"}} component="th" scope="row">
                 {dep.name}
               </TableCell>
-              <TableCell align="right">{dep.isComplete.toString()}</TableCell>
+              <TableCell style= {{fontFamily: "nunito", color: blueGrey['700'], fontWeight:"bold"}} align="right">{dep.isComplete.toString()}</TableCell>
               <TableCell>
-              <Button className= "Edit" variant="contained" color="primary" size="small"
+              <Button className= "Edit" variant="contained"  size="small" style={{backgroundColor: blueGrey['700'], fontFamily: "nerko one", color: "white", fontWeight:"bold"}}
               onClick={()=>this.setState({editModalShow:true.valueOf,
               depid:dep.id, depname: dep.name, depisComplete: dep.isComplete})}>
                   Edit
               </Button>
-              
-              <Button variant="contained" color="primary" size="small"
+              &nbsp;
+              <Button className= "Edit" variant="contained" size="small" style={{backgroundColor: blueGrey['700'], fontFamily: "nerko one", color: "white", fontWeight:"bold"}}
               onClick={()=>this.deleteDep(dep.id)}>
                   Delete
               </Button>

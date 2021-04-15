@@ -21,8 +21,6 @@ toggle=()=> {
 }
 
 handleSubmit(event){
-    console.log('submit called')
-    console.log(event.target.id.value, event.target.isComplete.value, event.target.name.value)
     fetch(process.env.REACT_APP_API + 'TodoItems', {
         method: 'PUT',
         headers:{
@@ -35,12 +33,10 @@ handleSubmit(event){
             IsComplete: event.target.isComplete.value
         })
     })
-    .then(res=>res.json())
     .then((result)=>{
-        alert(result);
     },
     (error)=>{
-        alert('Failed')
+        alert(error)
     })
 }
 
@@ -75,7 +71,7 @@ render(){
                                 <Form.Group controlId= "IsComplete">
                                 <Form.Label>CompletionStatus</Form.Label>
                                 <Form.Control type="text" name="isComplete" required
-                                placeholder = {this.toggle}/>
+                                placeholder = {this.props.depisComplete?.toString()}/>
                                 </Form.Group>
                                 <Form.Group>
                                     <Button variant="primary" type="submit">
